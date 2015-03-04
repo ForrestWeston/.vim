@@ -29,7 +29,7 @@ match BadWhitespace /\s\+$/
 set background=dark
 set t_Co=256
 if &t_Co == 256
-	colors lumberjack
+	colors sandydune
 	endif
 
-	colorscheme lumberjack
+	colorscheme sandydune
