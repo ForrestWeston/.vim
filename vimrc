@@ -4,7 +4,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype off				  " required
 
 "Setters"
 set modeline
@@ -33,3 +33,6 @@ if &t_Co == 256
 	endif
 
 	colorscheme sandydune
+
+filetype on
+syntax on
