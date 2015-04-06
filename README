@@ -12,3 +12,6 @@ Switch to the `~/.vim` directory, and fetch submodules:
 	git submodule update
 *********************Upgrading-Plugins*******************************
 git submodule foreach git pull origin master
+
+*********************Installing YCM**********************************
+git submodule update --init --recursive
