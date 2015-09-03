@@ -36,3 +36,6 @@ if &t_Co == 256
 
 filetype on
 syntax on
+
+"Tag Bar Mapping"
+nmap <F8> :TagbarToggle<CR>
