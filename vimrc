@@ -5,6 +5,12 @@ call pathogen#helptags()
 
 set nocompatible              " be iMproved, required
 filetype off				  " required
+set rtp+=~/.vim/bundle/Vundle.vim 
+call vundle#begin()
+Plugin 'fatih/vim-go'
+Plugin 'ervandew/supertab'
+call vundle#end()
+filetype plugin indent on
 
 "Setters"
 set modeline
@@ -16,6 +22,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set guioptions=aegit
+set backspace=2
 
 "Key mappings"
 inoremap jk <ESC>
@@ -29,11 +36,10 @@ match BadWhitespace /\s\+$/
 set background=dark
 set t_Co=256
 if &t_Co == 256
-	colors sandydune
+	colors gruvbox
 	endif
 
-	colorscheme sandydune
-
+	colorscheme gruvbox
 filetype on
 syntax on
 
