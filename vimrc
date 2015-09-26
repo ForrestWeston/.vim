@@ -23,6 +23,7 @@ set shiftwidth=4
 set softtabstop=4
 set guioptions=aegit
 set backspace=2
+set relativenumber
 
 "Key mappings"
 inoremap jk <ESC>
@@ -45,3 +46,8 @@ syntax on
 
 "Tag Bar Mapping"
 nmap <F8> :TagbarToggle<CR>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
