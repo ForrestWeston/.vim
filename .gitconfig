@@ -1,0 +1,7 @@
+[user]
+	name = Forrest Weston
+	email = Forrest.Weston@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	pom = pull origin master

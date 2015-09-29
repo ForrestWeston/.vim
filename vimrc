@@ -1,53 +1,63 @@
-"It is essential that these lines are called before enabling filetype
-"detection, so I would recommend putting them at the top of your vimrc file."
-call pathogen#infect()
-call pathogen#helptags()
+" https://www.digitalocean.com/community/tutorials/how-to-use-vundle-to-manage-vim-plugins-on-a-linux-vps
+" We also want to turn off the default "filetype" controls for now
+" because the way that vim caches filetype rules at runtime
+" interferes with the way that vundle alters the runtime environment.
+" We will change this back later:
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-set nocompatible              " be iMproved, required
-filetype off				  " required
-set rtp+=~/.vim/bundle/Vundle.vim 
-call vundle#begin()
-Plugin 'fatih/vim-go'
-Plugin 'ervandew/supertab'
-call vundle#end()
+" This is the Vundle package, which can be found on GitHub.
+" For GitHub repos, you specify plugins using the
+" 'user/repository' format
+Plugin 'gmarik/vundle'
+
+" We could also add repositories with a ".git" extension
+Plugin 'scrooloose/nerdtree.git'
+
+" To get plugins from Vim Scripts, you can reference the plugin
+" by name as it appears on the site
+" Plugin 'Buffergator'
+
+Plugin 'Tagbar'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline'
+Plugin 'tpope/vim-fugitive'
+
+
+" All plugins need be added bfefore this line
+" Now we can turn our filetype functionality back on
 filetype plugin indent on
 
-"Setters"
-set modeline
-set mouse=a
-set smartcase
-set hlsearch
+" needed for persistant airline bar
+set laststatus=2
+function! s:tagbar_integration()
+	" statusline tells you what fuinction you are in
+endfunction
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+
+" Settings
 set number
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set guioptions=aegit
-set backspace=2
 set relativenumber
-
-"Key mappings"
-inoremap jk <ESC>
-
-"Formatting"
-"Highlight un-needed White Space"
-highlight BadWhitespace ctermbg=red guibg=red
-match BadWhitespace /\s\+$/
-
-"color stuff"
+set backspace=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smartcase
 set background=dark
-set t_Co=256
-if &t_Co == 256
-	colors gruvbox
-	endif
-
-	colorscheme gruvbox
-filetype on
+set mouse=a
+colorscheme gruvbox
 syntax on
 
-"Tag Bar Mapping"
-nmap <F8> :TagbarToggle<CR>
-
+" Key Maps
+inoremap jk <ESC>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Formatting
+highlight BadWhitespace ctermbg=red
+match BadWhitespace /\s\+$/
